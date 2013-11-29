@@ -1,5 +1,7 @@
 Spree::Product.class_eval do
-  translates :name, :description, :meta_description, :meta_keywords, :permalink
+  # Commented out because only one call may be done.
+  # Otherwise our extra fields aren't working
+  # translates :name, :description, :meta_description, :meta_keywords, :permalink
 
   # for adding products which are closely related to existing ones
   # define "duplicate_extra" for site-specific actions, eg for additional fields
