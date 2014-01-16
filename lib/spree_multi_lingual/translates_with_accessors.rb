@@ -32,22 +32,22 @@ module TranslatesWithAccessors
       accessors = options.delete(:globalize_accessors)
 
       param_locales = params.map do |param|
-        SpreeMultiLingual.languages.map do |locale|
+        SpreeMultiLingual.attr_languages.map do |locale|
           "#{param}_#{locale}".to_sym
         end
       end.flatten
 
-      attr_accessible *param_locales
+      # attr_accessible *param_locales
 
       super
 
-      params_with_locale = SpreeMultiLingual.languages.map do |locale|
+      params_with_locale = SpreeMultiLingual.attr_languages.map do |locale|
         params.map { |param| "#{param}_#{locale}".to_sym }
       end
 
-      attr_accessible *(params_with_locale + params).flatten
+      # attr_accessible *(params_with_locale + params).flatten
 
-      globalize_accessors locales: SpreeMultiLingual.languages, attributes: params.to_a if accessors
+      globalize_accessors locales: SpreeMultiLingual.attr_languages, attributes: params.to_a if accessors
     end
   end
 end

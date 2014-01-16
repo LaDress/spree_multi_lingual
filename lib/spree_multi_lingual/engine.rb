@@ -9,6 +9,10 @@ module SpreeMultiLingual
     @@languages = locales
   end
 
+  def self.attr_languages
+    @@languages.map{ |l| l.to_s.gsub(/-/, '_').downcase }
+  end
+
   class Engine < Rails::Engine
     engine_name 'spree_multi_lingual'
 

@@ -6,7 +6,7 @@ Spree::Product.class_eval do
   def duplicate
     p = self.dup
 
-    (SpreeMultiLingual.languages).each do |locale|
+    (SpreeMultiLingual.attr_languages).each do |locale|
       locale_suffix = locale.empty? ? "" : "_#{locale}"
 
       name_locale = (I18n.t :copy_of, :locale => locale) + read_attribute(:name, :locale => locale)

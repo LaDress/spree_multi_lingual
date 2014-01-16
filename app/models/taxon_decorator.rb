@@ -12,7 +12,7 @@ module Spree
     # Set the full permalink accordingly from the argument permalink
     #
     # Returns nothing
-    (SpreeMultiLingual.languages + [""]).each do |locale|
+    (SpreeMultiLingual.attr_languages + [""]).each do |locale|
       locale_suffix = locale.empty? ? "" : "_#{locale}"
       define_method("permalink#{locale_suffix}=") do |permalink_part|
         opts = locale.empty? ? {} : { :locale => locale.to_sym }
@@ -45,7 +45,7 @@ module Spree
 
     def localed_permalink
       [].tap do |res|
-        SpreeMultiLingual.languages.each do |lang|
+        SpreeMultiLingual.attr_languages.each do |lang|
           res << {:permalink => permalink_name(:locale => lang), :locale => lang}
         end
       end
