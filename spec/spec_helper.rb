@@ -15,6 +15,8 @@ require 'spree/testing_support/factories'
 require 'spree/testing_support/authorization_helpers'
 require 'spree/testing_support/capybara_ext'
 
+DEFAULT_LOCALE = I18n.locale
+
 RSpec.configure do |config|
   # == Mock Framework
   #
@@ -37,6 +39,6 @@ RSpec.configure do |config|
   config.include Capybara::DSL
 
   config.after(:each) do
-    I18n.locale = nil
+    I18n.locale = DEFAULT_LOCALE
   end
 end

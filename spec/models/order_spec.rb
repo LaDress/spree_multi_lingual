@@ -8,7 +8,6 @@ module Spree
         order = FactoryGirl.create(:order)
         order.finalize!
         order.reload.locale.should == 'fr'
-        I18n.locale = nil
       end
     end
 
