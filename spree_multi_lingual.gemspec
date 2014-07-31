@@ -39,7 +39,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'deface'
   s.add_development_dependency 'email_spec'
   s.add_development_dependency 'selenium-webdriver'
-  # Seems Spree doesn't require it correctly or there is a problem with extensions maybe? Still, it is needed to work with the dummy app!
-  s.add_development_dependency 'debugger'
   s.add_development_dependency 'sass-rails'
 end
